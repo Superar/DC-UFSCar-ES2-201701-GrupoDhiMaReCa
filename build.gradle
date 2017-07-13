@@ -146,6 +146,10 @@ sourceSets {
     }
 }
 
+test {
+    ignoreFailures = true
+}
+
 processResources {
     filesMatching("build.properties") {
         expand(version: project.version,
@@ -274,6 +278,21 @@ tasks.withType(Test) {
 
 task jacocoMerge (type: JacocoMerge) {
     executionData test, databaseTest
+}
+
+jacoco {
+    applyTo run
+}
+
+task jacocoRunReport (type: JacocoReport) {
+    executionData run
+    sourceSets sourceSets.main
+
+    reports {
+        xml.enabled = true // coveralls plugin depends on xml format report
+        html.enabled = true
+        html.destination "${buildDir}/jacocoHtml"
+    }
 }
 
 jacocoTestReport {
