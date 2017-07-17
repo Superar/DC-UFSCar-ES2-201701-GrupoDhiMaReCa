@@ -23,6 +23,7 @@ import net.sf.jabref.logic.importer.fileformat.PdfXmpImporter;
 import net.sf.jabref.logic.importer.fileformat.RepecNepImporter;
 import net.sf.jabref.logic.importer.fileformat.RisImporter;
 import net.sf.jabref.logic.importer.fileformat.SilverPlatterImporter;
+//import net.sf.jabref.logic.importer.fileformat.CsvImporter;
 import net.sf.jabref.logic.xmp.XMPPreferences;
 import net.sf.jabref.preferences.JabRefPreferences;
 
@@ -112,6 +113,7 @@ public class ImporterTest {
                 new Object[]{new RepecNepImporter(importFormatPreferences)},
                 new Object[]{new RisImporter()},
                 new Object[]{new SilverPlatterImporter()}
+                //new Object[]{new CsvImporter()}
         );
         // @formatter:on
     }

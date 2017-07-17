@@ -42,6 +42,7 @@ public enum FileExtensions {
     XML(Localization.lang("%0 file", "XML"), "xml"),
     ZIP(Localization.lang("%0 file", "ZIP"), "zip");
 
+
     private final String[] extension;
     private final String description;
 
