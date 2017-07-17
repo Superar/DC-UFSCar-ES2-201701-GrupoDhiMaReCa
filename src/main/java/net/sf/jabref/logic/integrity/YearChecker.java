@@ -1,5 +1,7 @@
 package net.sf.jabref.logic.integrity;
 
+import java.util.Calendar;
+
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
@@ -28,6 +30,19 @@ public class YearChecker implements ValueChecker {
 
         if (!ENDS_WITH_FOUR_DIGIT.test(value.replaceAll(PUNCTUATION_MARKS, ""))) {
             return Optional.of(Localization.lang("last four nonpunctuation characters should be numerals"));
+        }
+
+        //check if the year is not negative
+        if (value.contains("-")){
+            return Optional.of(Localization.lang("year cannot be negative"));
+        }
+
+        //check if the year already exist
+        Calendar c = Calendar.getInstance();
+        int actualYear = c.get(Calendar.YEAR);
+        int receviedYear = Integer.parseInt(value);
+        if (receviedYear > actualYear) {
+            return Optional.of(Localization.lang("year does not exist"));
         }
 
         return Optional.empty();
