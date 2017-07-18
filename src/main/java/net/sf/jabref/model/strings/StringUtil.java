@@ -69,15 +69,15 @@ public class StringUtil {
     public static String getPart(String text, int startIndex, boolean terminateOnEndBraceOnly) {
         char c;
         int count = 0;
-    
+
         StringBuilder part = new StringBuilder();
-    
+
         // advance to first char and skip whitespace
         int index = startIndex + 1;
         while ((index < text.length()) && Character.isWhitespace(text.charAt(index))) {
             index++;
         }
-    
+
         // then grab whatever is the first token (counting braces)
         while (index < text.length()) {
             c = text.charAt(index);
@@ -571,6 +571,8 @@ public class StringUtil {
 
         return s.substring(0, maxLength - 3) + "...";
     }
+
+
 
     /**
      * Replace non-English characters like umlauts etc. with a sensible letter or letter combination that bibtex can
