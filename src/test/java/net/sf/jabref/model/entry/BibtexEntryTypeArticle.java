@@ -48,7 +48,7 @@ public class BibtexEntryTypeArticle
     @Test
     public void testCompareTo()
     {
-        // Retorno 1 significa que sao tipos diferentes
+        // Retorno -1 significa que sao tipos diferentes
         assertEquals(-1, BibtexEntryTypes.ARTICLE.compareTo(BibtexEntryTypes.BOOK));
     }
 
@@ -63,7 +63,7 @@ public class BibtexEntryTypeArticle
     public void testSecondaryOptionalFields()
     {
         List<String> secondaryOptionalFields = new ArrayList<>();
-        // Todos os campos opciionais de BOOK sao primarios
+        // Todos os campos opciionais de ARTICLE sao primarios
         assertThat(secondaryOptionalFields, is(BibtexEntryTypes.ARTICLE.getSecondaryOptionalFields()));
     }
 }
