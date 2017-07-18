@@ -820,7 +820,11 @@ public class EntryEditor extends JPanel implements EntryContainer {
                 warnDuplicateBibtexkey();
             } else if (emptyWarning) {
                 warnEmptyBibtexkey();
-            } else {
+            }
+            else if (panel.getDatabase().getStringCount() <= 2){
+                WarnMoreThan2Bibtexkey();
+            }
+            else {
                 panel.output(Localization.lang("Stored entry") + '.');
             }
 
@@ -1388,6 +1392,10 @@ public class EntryEditor extends JPanel implements EntryContainer {
 
     private void warnEmptyBibtexkey() {
         panel.output(Localization.lang("Empty BibTeX key") + ". " + Localization.lang("Grouping may not work for this entry."));
+    }
+
+    private void WarnMoreThan2Bibtexkey() {
+        panel.output(Localization.lang("Less than 2 letters BibTex key") + ". " + Localization.lang("Grouping may not work for this entry."));
     }
 
 

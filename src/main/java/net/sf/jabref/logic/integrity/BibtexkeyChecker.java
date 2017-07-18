@@ -32,6 +32,12 @@ public class BibtexkeyChecker implements Checker {
                     Localization.lang("empty BibTeX key") + ": " + authortitleyear, entry, BibEntry.KEY_FIELD));
         }
 
+        if (valuekey.get().length() < 2 ){
+            return Collections.singletonList(new IntegrityMessage(
+                    Localization.lang("BibTex key has less than 2 letters") + ": " + authortitleyear, entry, BibEntry.KEY_FIELD));
+        }
+
+
         return Collections.emptyList();
     }
 }
